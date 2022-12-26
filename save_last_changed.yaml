@@ -1,0 +1,59 @@
+template:
+  - trigger: 
+      - platform: state
+        entity_id: binary_sensor.bedprecence_mattia
+        from: 
+        - "on"
+        - "off"
+        to: 
+        - "on"
+        - "off"
+    sensor:
+      - name: "bed_precence_mattia_last_changed"
+        unique_id: bed_precence_mattia_last_changed
+        state: "{{ now() }}"
+        
+
+  - trigger:  #termostato_caldaia_power_last_changed
+      - platform: state
+        entity_id: climate.termostato_caldaia
+        from: 
+        - "off"
+        - "heat"
+        to: 
+        - "off"
+        - "heat"
+    sensor:
+      - name: "termostato_caldaia_power_last_changed"
+        unique_id: termostato_caldaia_power_last_changed
+        state: "{{ now() }}"
+        
+  - trigger:  #ac_lavatrice_last_changed
+      - platform: state
+        entity_id: binary_sensor.ac_lavatrice
+        from: 
+        - "on"
+        - "off"
+        to: 
+        - "on"
+        - "off"
+    sensor:
+      - name: "ac_lavatrice_last_changed"
+        unique_id: ac_lavatrice_last_changed
+        state: "{{ now() }}"
+ 
+  - trigger: 
+      - platform: state
+        entity_id: person.marco
+        from:
+          - home
+          - not_home
+        to:
+          - home
+          - not_home
+    sensor:
+      - name: "marco_last_changed"
+        unique_id: marco_last_changed
+        state: "{{ now() }}"
+
+        
